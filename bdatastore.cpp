@@ -83,7 +83,7 @@ void BDataStore::addToCart(std::string& u, std::vector<int>& indexes) {
     }
     User* user = users[u];
     for (size_t index : indexes) {
-        if (index < 1 || index > productSearchResults.size()) {
+        if (productSearchResults.size() == 0 || index < 1 || index > productSearchResults.size()) {
             std::cout << "Invalid request" << std::endl;
             return;
         }
