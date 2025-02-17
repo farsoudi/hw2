@@ -25,7 +25,7 @@ std::string Clothing::displayString() const {
     stringstream ss;
     ss << name_ << endl 
     << "Size: " << Size << " Brand: " << Brand << endl
-    << std::fixed << std::setprecision(2) << price_ << " " << qty_ << " left." << endl;
+    << std::fixed << std::setprecision(2) << price_ << " " << qty_ << " left.";
 
     return ss.str();
         

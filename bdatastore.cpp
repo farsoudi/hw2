@@ -99,7 +99,7 @@ void BDataStore::viewCart(std::string& u) {
     User* user = users[u];
     productList& cart = carts[user];
     for (size_t i = 0 ; i < cart.size() ; i++) {
-        std::cout << "Item " << (i+1) << ": " << cart[i]->displayString() << std::endl;
+        std::cout << std::endl << "Item " << (i+1) << std::endl << cart[i]->displayString();
     }
 
 }
