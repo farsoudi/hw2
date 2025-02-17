@@ -99,7 +99,7 @@ void BDataStore::viewCart(std::string& u) {
     User* user = users[u];
     productList& cart = carts[user];
     for (size_t i = 0 ; i < cart.size() ; i++) {
-        std::cout << "Item " << (i+1) << cart[i]->displayString() << std::endl;
+        std::cout << "Item " << (i+1) << ": " << cart[i]->displayString() << std::endl;
     }
 
 }
@@ -115,13 +115,13 @@ void BDataStore::buyCart(std::string& u) {
     productList::iterator lt;
     for (lt = cart.begin() ; lt != cart.end() ; ) {
         Product* currentP = *lt;
-        if ( (currentP->getQty() > 1) && (user->getBalance() > currentP->getPrice())) { //Buyable
+        if ( (currentP->getQty() >= 1) && (user->getBalance() >= currentP->getPrice())) { //Buyable
             currentP->subtractQty(1);
             user->deductAmount(currentP->getPrice());
 
             lt = cart.erase(lt);
         } else { //Not Buyable, move on to next item
-            lt ++;
+            ++lt;
         }
     }
 }
