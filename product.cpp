@@ -1,6 +1,9 @@
 #include <sstream>
 #include <iomanip>
+#include <set>
+#include <string>
 #include "product.h"
+#include "util.h"
 
 using namespace std;
 
@@ -53,5 +56,7 @@ void Product::dump(std::ostream& os) const
     os << category_ << "\n" << name_ << "\n" << price_ << "\n" << qty_ << endl;
 }
 
-
-
+void Product::emplaceBaseKeywords(std::set<std::string>& keywords) const {
+    std::set<std::string> nameKeywords = parseStringToWords(convToLower(name_));
+    keywords = setUnion<std::string>(keywords, nameKeywords);
+}

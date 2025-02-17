@@ -5,6 +5,7 @@
 #include <set>
 #include <vector>
 #include <algorithm>
+#include "util.h"
 
 class Product {
 public:
@@ -21,7 +22,7 @@ public:
      */
     virtual bool isMatch(std::vector<std::string>& searchTerms) const;
 
-    /**
+    /**asdasd
      * Returns a string to display the product info for hits of the search
      */
     virtual std::string displayString() const = 0;
@@ -30,6 +31,13 @@ public:
      * Outputs the product info in the database format
      */
     virtual void dump(std::ostream& os) const;
+
+    /*
+    *   Adds to keywords base product attributes
+    */
+   void emplaceBaseKeywords(std::set<std::string>& keywords) const;
+
+
 
     /**
      * Accessors and mutators

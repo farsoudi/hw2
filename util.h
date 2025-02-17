@@ -3,30 +3,42 @@
 
 #include <string>
 #include <iostream>
+#include <algorithm>
 #include <set>
 
-
-/** Complete the setIntersection and setUnion functions below
- *  in this header file (since they are templates).
- *  Both functions should run in time O(n*log(n)) and not O(n^2)
- */
 template <typename T>
 std::set<T> setIntersection(std::set<T>& s1, std::set<T>& s2)
 {
-
-
-
-
-
+  typename std::set<T>::iterator it1 = s1.begin(); 
+  std::set<T> res;
+  while (it1 != s1.end()) 
+  {
+    if (s2.find(*it1) != s2.end())
+    {
+      res.insert(*it1);
+    }
+    it1++;
+  }
+  return res; 
 }
+
 template <typename T>
 std::set<T> setUnion(std::set<T>& s1, std::set<T>& s2)
 {
-
-
-
-
-
+  std::set<T> res;
+  typename std::set<T>::iterator it1 = s1.begin(); 
+  while (it1 != s1.end()) 
+  {
+    res.insert(*it1);
+    ++it1;
+  }
+  typename std::set<T>::iterator it2 = s2.begin(); 
+  while (it2 != s2.end()) 
+  {
+    res.insert(*it2); 
+    ++it2;
+  }
+  return res;
 }
 
 /***********************************************/
